@@ -32,4 +32,19 @@ fmt.Println(*johnAccount)
 fmt.Println(johnAccount, johnAccount2)
 fmt.Println(johnAccount == johnAccount2)   // Comparing address -> !=
 fmt.Println(*johnAccount == *johnAccount2) // Comparing values -> ==
+
+
+johnAccount.holder = "John"
+johnAccount.balance = 500
+
+fmt.Println(johnAccount.balance)
+status, value := johnAccount.Deposit(2000)
+fmt.Println(status, value)
+fmt.Println(johnAccount.Withdraw(300))
+fmt.Println(johnAccount.balance)
+```
+
+```sh
+# To use Go Modules and locad local dependencies
+go mod init bank
 ```
