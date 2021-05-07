@@ -10,16 +10,7 @@ type CurrentAccount struct {
 }
 
 func main() {
-	fmt.Println(CurrentAccount{})
-
-	// "Filipe"
-	// 589
-	// 123465
-	// 125.50
-
-	// "Bob"
-	// 222
-	// 22222
-	// 222.22
-
+	filipesAccount := CurrentAccount{holder: "Filipe", numAgency: 589, numAccount: 123456, balance: 125.50}
+	bobsAccount := CurrentAccount{"Bob", 222, 22222, 222.22}
+	fmt.Println(filipesAccount, bobsAccount)
 }
