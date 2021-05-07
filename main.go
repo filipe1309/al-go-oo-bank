@@ -9,23 +9,21 @@ type CurrentAccount struct {
 	balance    float64
 }
 
-func main() {
-	filipesAccount := CurrentAccount{holder: "Filipe", numAgency: 589, numAccount: 123456, balance: 125.50}
-	bobsAccount := CurrentAccount{"Bob", 222, 22222, 222.22}
-	fmt.Println(filipesAccount, bobsAccount)
+func (c *CurrentAccount) withdraw(withdrawValue float64) string {
+	canWithdraw := withdrawValue > 0 && withdrawValue <= c.balance
+	if canWithdraw {
+		c.balance -= withdrawValue
+		return "Success"
+	}
+	return "No balance"
+}
 
-	var johnAccount *CurrentAccount
-	johnAccount = new(CurrentAccount)
+func main() {
+	johnAccount := CurrentAccount{}
 	johnAccount.holder = "John"
 	johnAccount.balance = 500
+	fmt.Println(johnAccount.balance)
 
-	var johnAccount2 *CurrentAccount
-	johnAccount2 = new(CurrentAccount)
-	johnAccount2.holder = "John"
-	johnAccount2.balance = 500
-
-	fmt.Println(*johnAccount)
-	fmt.Println(johnAccount, johnAccount2)
-	fmt.Println(johnAccount == johnAccount2)   // Comparing address -> !=
-	fmt.Println(*johnAccount == *johnAccount2) // Comparing values -> ==
+	fmt.Println(johnAccount.withdraw(300))
+	fmt.Println(johnAccount.balance)
 }
