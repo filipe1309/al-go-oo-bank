@@ -9,8 +9,21 @@ type CurrentAccount struct {
 	balance    float64
 }
 
+func (c *CurrentAccount) withdraw(withdrawValue float64) string {
+	canWithdraw := withdrawValue > 0 && withdrawValue <= c.balance
+	if canWithdraw {
+		c.balance -= withdrawValue
+		return "Success"
+	}
+	return "No balance"
+}
+
 func main() {
-	filipesAccount := CurrentAccount{holder: "Filipe", numAgency: 589, numAccount: 123456, balance: 125.50}
-	bobsAccount := CurrentAccount{"Bob", 222, 22222, 222.22}
-	fmt.Println(filipesAccount, bobsAccount)
+	johnAccount := CurrentAccount{}
+	johnAccount.holder = "John"
+	johnAccount.balance = 500
+	fmt.Println(johnAccount.balance)
+
+	fmt.Println(johnAccount.withdraw(300))
+	fmt.Println(johnAccount.balance)
 }
