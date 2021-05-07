@@ -44,6 +44,8 @@ fmt.Println(johnAccount.Withdraw(300))
 fmt.Println(johnAccount.balance)
 ```
 
+# Class 3
+
 ```sh
 # To use Go Modules and locad local dependencies
 go mod init bank
