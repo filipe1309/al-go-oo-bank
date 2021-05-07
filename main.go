@@ -26,14 +26,22 @@ func (c *CurrentAccount) Deposit(depositValue float64) (string, float64) {
 	return "Deposit value < 0", c.balance
 }
 
-func main() {
-	johnAccount := CurrentAccount{}
-	johnAccount.holder = "John"
-	johnAccount.balance = 500
+func (c *CurrentAccount) Transfer(transferValue float64, destinyAccount *CurrentAccount) bool {
+	if transferValue < c.balance && transferValue > 0 {
+		c.balance -= transferValue
+		destinyAccount.Deposit(transferValue)
+		return true
+	}
+	return false
+}
 
-	fmt.Println(johnAccount.balance)
-	status, value := johnAccount.Deposit(2000)
-	fmt.Println(status, value)
-	fmt.Println(johnAccount.Withdraw(300))
-	fmt.Println(johnAccount.balance)
+func main() {
+	johnAccount := CurrentAccount{holder: "John", balance: 300}
+	bobAccount := CurrentAccount{holder: "Bob", balance: 100}
+
+	status := johnAccount.Transfer(-200, &bobAccount)
+
+	fmt.Println(status)
+	fmt.Println(johnAccount)
+	fmt.Println(bobAccount)
 }
