@@ -19,11 +19,11 @@ This project was developed following Alura's [Go: Orientação a Objetos](https:
 ## :cd: Installation
 
 ```sh
-git clone [PROJECT_REPO_LINK]
+git clone git@github.com:filipe1309/al-go-oo-bank.git
 ```
 
 ```sh
-cd [PROJECT_REPO_NAME]
+cd al-go-oo-bank
 ```
 
 ## :runner: Running
