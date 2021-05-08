@@ -1,7 +1,9 @@
 package accounts
 
+import "customers"
+
 type CurrentAccount struct {
-	Holder     string
+	Holder     customers.Holder
 	NumAgency  int
 	NumAccount int
 	Balance    float64
