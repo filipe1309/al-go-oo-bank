@@ -3,10 +3,9 @@ package accounts
 import "customers"
 
 type CurrentAccount struct {
-	Holder     customers.Holder
-	NumAgency  int
-	NumAccount int
-	balance    float64
+	Holder                customers.Holder
+	NumAgency, NumAccount int
+	balance               float64
 }
 
 func (c *CurrentAccount) Withdraw(withdrawValue float64) string {

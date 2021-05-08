@@ -65,3 +65,20 @@ fmt.Println(status)
 fmt.Println(johnAccount)
 fmt.Println(bobAccount)
 ```
+
+# Class 5
+
+```go
+exAccount := accounts.CurrentAccount{}
+exAccount.Deposit(100)
+
+fmt.Println(exAccount.GetBalance())
+```
+
+```go
+johnAccount := accounts.SavingsAccount{}
+johnAccount.Deposit(100)
+johnAccount.Withdraw(555)
+
+fmt.Println(johnAccount.GetBalance())
+```
