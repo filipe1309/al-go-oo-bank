@@ -46,7 +46,22 @@ fmt.Println(johnAccount.balance)
 
 # Class 3
 
+https://blog.golang.org/using-go-modules
+
 ```sh
 # To use Go Modules and locad local dependencies
 go mod init bank
+```
+
+# Class 4
+
+```go
+johnAccount := accounts.CurrentAccount{Holder: "John", Balance: 300}
+bobAccount := accounts.CurrentAccount{Holder: "Bob", Balance: 100}
+
+status := johnAccount.Transfer(-200, &bobAccount)
+
+fmt.Println(status)
+fmt.Println(johnAccount)
+fmt.Println(bobAccount)
 ```
