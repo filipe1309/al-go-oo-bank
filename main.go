@@ -6,8 +6,9 @@ import (
 )
 
 func main() {
-	exAccount := accounts.CurrentAccount{}
-	exAccount.Deposit(100)
+	johnAccount := accounts.SavingsAccount{}
+	johnAccount.Deposit(100)
+	johnAccount.Withdraw(555)
 
-	fmt.Println(exAccount.GetBalance())
+	fmt.Println(johnAccount.GetBalance())
 }
